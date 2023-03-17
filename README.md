@@ -38,17 +38,17 @@ pip install ./
 
 Initialize the model instance:
 ```
-from llamacpypy import llama
+from llamacpypy import Llama
 
-llama_model = llama.Llama('models/7B/ggml-model-q4_0.bin')
+llama = Llama('models/7B/ggml-model-q4_0.bin')
 ```
 Load your model into memory:
 ```
-llama_model.load_model()
+llama.load_model()
 ```
 Generate from a given prompt:
 ```
-var = llama_model.generate("This is the weather report, we are reporting a clown fiesta happening at backer street. The clowns ")
+var = llama.generate("This is the weather report, we are reporting a clown fiesta happening at backer street. The clowns ")
 print(var)
 >>> This is the weather report, we are reporting a clown fiesta happening at backer street. The clowns 1st of July parade was going to be in their own neighborhood but they just couldn't contain themselves;
 They decided it would look better and probably have more fun if all went into one area which meant that the whole town had to shut down for a little while as all roads were blocked. At least traffic wasn’t too bad today because most of people are out shopping, but I did see some shoppers in their car driving away from Backer street with “clowns” on wheels outside their windows…
