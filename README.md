@@ -40,7 +40,7 @@ Initialize the model instance:
 ```
 from llamacpypy import Llama
 
-llama = Llama('models/7B/ggml-model-q4_0.bin')
+llama = Llama('models/7B/ggml-model-q4_0.bin', warm_start=False)
 ```
 Load your model into memory:
 ```
