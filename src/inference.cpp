@@ -4,10 +4,22 @@
 namespace py = pybind11;
 
 PYBIND11_MODULE(_core, m) {
-    py::class_<llama>(m, "Llama")
+    py::class_<llama>(m, "LlamaModel")
         .def(py::init<const std::string &>())
-        .def("load_model", &llama::load_model)
-        .def("generate", &llama::generate);
+        .def("set_params", &llama::set_params, "Set the parameters of the model",
+        py::arg("n_threads") = 4,
+        py::arg("n_predict") = 128,
+        py::arg("repeat_last_n") = 64,
+        py::arg("n_ctx") = 512,
+
+        py::arg("top_k") = 40,
+        py::arg("top_p") = 1.0f,
+        py::arg("temp") = 0.70f,
+        py::arg("repeat_penalty") = 1.30f,
+        py::arg("n_batch")= 8
+        )
+        .def("load_model", &llama::load_model, "Loads the model binary into memory")
+        .def("generate", &llama::generate), "Generate text with the current model";
 }
 bool llama_eval(
         const llama_model & model,
@@ -670,6 +682,32 @@ bool llama::load_model(){
 
     return true;
 }
+
+bool llama::set_params(
+        int32_t n_threads,
+        int32_t n_predict,
+        int32_t repeat_last_n,
+        int32_t n_ctx,
+
+        int32_t top_k,
+        float top_p,
+        float temp,
+        float repeat_penalty,
+        int32_t n_batch
+        ){
+            params.n_threads = n_threads;
+            params.n_predict = n_predict;
+            params.repeat_last_n = repeat_last_n;
+            params.n_ctx = n_ctx;
+            
+            params.top_k = top_k;
+            params.top_p = top_p;
+            params.temp = temp;
+            params.repeat_penalty = repeat_penalty;
+            params.n_batch = n_batch;
+            return true;
+        }
+
 
 std::string llama::generate(const std::string & prompt){
 
