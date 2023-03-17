@@ -1,15 +1,15 @@
 [project]
-name = "inference"
+name = "llamacpypy"
 version = "0.1.0"
 description = ""
-authors = [{name = "Emanuel Seemann", email = "<3380606+seemanne@users.noreply.github.com>"}]
+authors = [{name = "Emanuel Seemann", email = "github@emanuelseemann.ch"}]
 readme = "README.md"
 
 [tool.poetry]
-name = "llama-cpp"
+name = "llamacpypy"
 version = "0.1.0"
 description = ""
-authors = ["Emanuel Seemann <3380606+seemanne@users.noreply.github.com>"]
+authors = ["Emanuel Seemann github@emanuelseemann.ch"]
 readme = "README.md"
 packages = [{include = "llama"}]
 
