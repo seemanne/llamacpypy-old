@@ -1,7 +1,7 @@
 # llamacpypy
 llamacpp but wrapped in python
 
-This allows serving llama using libraries such as fastAPI using the optimized models of the [llama.cpp](https://github.com/ggerganov/llama.cpp) ecosystem instead of using torch directly. This should decrease ressource consumption over plain torch.
+This allows serving llama using libraries such as fastAPI using the optimized and in particular quantized models of the [llama.cpp](https://github.com/ggerganov/llama.cpp) ecosystem instead of using torch directly. This should decrease ressource consumption over plain torch.
 
 # Installation
 
@@ -54,3 +54,8 @@ print(var)
 They decided it would look better and probably have more fun if all went into one area which meant that the whole town had to shut down for a little while as all roads were blocked. At least traffic wasn’t too bad today because most of people are out shopping, but I did see some shoppers in their car driving away from Backer street with “clowns” on wheels outside their windows…
 The kids lined up along the route and waited for the parade to pass by
 ```
+
+# Implementation details
+
+This python module is mainly a wrapper around the `llama` class in `src/inference.cpp`. As such, any changes should be done in there. 
+As the llamacpp code is mostly contained in `main.cpp` which doesn't expose a good api, this repo will have to be manually patched on a need-be basis. Changes to `ggml` should not be a problem. Fixing the api on the main repo would allow this to be set up as a downstream fork rather than the weird sidekick repo it currently is.
