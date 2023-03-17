@@ -8,8 +8,10 @@ This allows serving llama using libraries such as fastAPI using the optimized mo
 Atm this is all very raw so it will require some work on the users part.
 
 ### Set up your venv and install the requirements as always
-TODO
 
+If you have poetry, there are artifacts in the pyproject file that should allow you to do `poetry install` to set up venv, however it wont install the project itself. This can be done by using `poetry shell` and then calling `pip install ./` as below.
+
+If you have another setup just pip install the reqs in your virtual env of choice and then continue as described below. 
 
 ### Run makefile 
 
