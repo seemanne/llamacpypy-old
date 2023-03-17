@@ -35,7 +35,7 @@ pip install ./
 
 Initialize the model instance:
 ```
-from llamacpypy import llamacpypy
+import llamacpypy
 
 llama = llamacpypy.Llama('models/7B/ggml-model-q4_0.bin')
 ```
