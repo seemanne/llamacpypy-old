@@ -88,6 +88,18 @@ struct llama {
     llama(const std::string & fname_){
         params.model = fname_;
     };
+    bool set_params(
+        int32_t n_threads = std::min(4, (int32_t) std::thread::hardware_concurrency()),
+        int32_t n_predict = 128,
+        int32_t repeat_last_n = 64,
+        int32_t n_ctx = 512,
+
+        int32_t top_k = 40,
+        float top_p = 1.0f,
+        float temp = 0.70f,
+        float repeat_penalty = 1.30f,
+        int32_t n_batch= 8
+        );
     bool load_model();
     std::string generate(const std::string & prompt);
     
