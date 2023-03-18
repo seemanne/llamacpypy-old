@@ -1,3 +1,7 @@
+# THIS REPO HAS BEEN MOVED
+
+It can now be found at https://github.com/seemanne/llamacpypy as a proper llama.cpp fork
+
 # llamacpypy
 llamacpp but wrapped in python
 
